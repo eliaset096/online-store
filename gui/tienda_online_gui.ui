@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Tienda_Online</class>
+ <widget class="QMainWindow" name="Tienda_Online">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1263</width>
+    <height>842</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Tienda Online - Portafolio de Analítica</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>10</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tienda Online </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>59</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Portafolio de Analítica</string>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>0</y>
+      <width>321</width>
+      <height>101</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="tb_main">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>1251</width>
+      <height>651</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="tb_data">
+     <attribute name="title">
+      <string>            Datos            </string>
+     </attribute>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>10</y>
+        <width>181</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Conjunto de Datos</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tw_data">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>40</y>
+        <width>1201</width>
+        <height>571</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>Invoice</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>StockCode</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Description</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Quantity</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>InvoiceDate</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Price</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>CustomerID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Country</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>TotalSales</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>InvoiceYearMonth</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tb_report">
+     <attribute name="title">
+      <string>            Informe             </string>
+     </attribute>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>0</y>
+        <width>551</width>
+        <height>631</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QGraphicsView" name="gv_graphic_report"/>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="tbrow_recomendations"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>681</width>
+        <height>631</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QComboBox" name="cb_customer_id">
+         <property name="currentText">
+          <string>Seleccione un CustomerID</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Seleccione un CustomerID</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="gv_graphic_main" native="true"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="bt_money_spent_customer">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>760</y>
+      <width>191</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ver Dinero Gastado Cliente Mes</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="tb_new_customers_next">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>760</y>
+      <width>181</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clientes Nuevos Próximo Mes</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="tb_customers_for_exit">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>760</y>
+      <width>101</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clientes por Irse</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bt_appropriate_items_customer">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>760</y>
+      <width>171</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Artículos Apropiados Cliente</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bt_customer_purshas_history">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>760</y>
+      <width>201</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clientes Según Historial Compras</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bt_return_back">
+    <property name="geometry">
+     <rect>
+      <x>1070</x>
+      <y>760</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Regresar</string>
+    </property>
+   </widget>
+   <widget class="QQuickWidget" name="quickWidget">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>10</y>
+      <width>341</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="resizeMode">
+     <enum>QQuickWidget::SizeRootObjectToView</enum>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1263</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QQuickWidget</class>
+   <extends>QWidget</extends>
+   <header>QtQuickWidgets/QQuickWidget</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
