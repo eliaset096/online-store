@@ -75,5 +75,6 @@ class CleanData(object):
         Función que corrige el error de digitación en la columna CustomerID.
         :param df_data: Es el DataFrame con los datos.
         :return: No hay retorno.
+
         """
         df_data = df_data.rename({'Customer ID': 'CustomerID'}, axis="columns", inplace=True)
