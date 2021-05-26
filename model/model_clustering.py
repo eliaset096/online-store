@@ -36,6 +36,7 @@ class ModelClustering(object):
     def load_discover_data(self):
         """
         Función que realiza el cargue de los datos a un DataFrame.
+
         :return: No hay retorno.
         """
         dts1 = pd.read_excel('online_retail_II.xlsx', sheet_name='Year 2009-2010')
@@ -50,6 +51,7 @@ class ModelClustering(object):
         """
         Función que realiza la transformación de los datos.
         Se crean las variables TotalSales e InvoiceYearMonth.
+
         :return:  No hay retorno.
         """
         self.df_data['TotalSales'] = self.df_data['Quantity'] * self.df_data['Price']
@@ -68,7 +70,8 @@ class ModelClustering(object):
         """
         Función que dibuja una gráfico circular para mostrar
         el porcentaje de los clientes de Reino Unido y los que no.
-        :return: } No hay retorno.
+
+        :return: No hay retorno.
         """
         x = self.df_data.Country.apply(lambda x: x if x == 'United Kingdom' else 'Not UK').value_counts().rename(
             '#Customers')
@@ -99,6 +102,7 @@ class ModelClustering(object):
         """
         Función para mostrar el número de clientes que
         se adicionan a la compañia cada mes.
+
         :return:  No hay retorno.
         """
         fig = plt.figure()
@@ -117,6 +121,7 @@ class ModelClustering(object):
         """
         Función que prepara los datos poara aplicar el modelo
         KMeans.
+
         :return: No hay retorno.
         """
         self.df_data_model = self.df_data.copy()
@@ -151,6 +156,7 @@ class ModelClustering(object):
     def show_table_rfm(self):
         """
         Función muestra la tabla del modelo RFM.
+
         :return: No hay retorno.
         """
         # Pintamos para ver como se comportan los datos calculados anteriormente
@@ -162,6 +168,7 @@ class ModelClustering(object):
     def show_data_in_rfm(self):
         """
         Función que muestra los datos obtenidos del modelo EFM.
+
         :return: No hay retorno.
         """
         # Pintamos para ver como se comportan los datos
@@ -173,6 +180,7 @@ class ModelClustering(object):
     def show_data_rfm_scaled(self):
         """
         Función que muestra los datos normalizados en el modelo RFM.
+
         :return: No hay retorno.
         """
         # Pintamos para ver como se comportan los datos
@@ -185,6 +193,7 @@ class ModelClustering(object):
         """
         Función que muestra los gráficos de los métdos
         para hallar el k óptimo.
+
         :return: No hay retorno.
         """
         # Rango del número de clusters
@@ -209,6 +218,7 @@ class ModelClustering(object):
         """
         Función que muestra los gráficos del método de
         silueta para confirmar el k óptimo.
+
         :return: No hay retorno.
         """
         for k in [2, 3, 4, 5, 6]:
@@ -222,6 +232,7 @@ class ModelClustering(object):
     def training_kmeans_model(self):
         """
         Función que entrena el modelo kmeans.
+
         :return: No hay retorno.
         """
         # Final model with k=3
@@ -232,6 +243,7 @@ class ModelClustering(object):
     def show_centroides_model(self):
         """
         Función que muestra los centroides del modelo.
+
         :return: No hay retorno.
         """
         self.centroides = self.kmeans.cluster_centers_
@@ -241,6 +253,7 @@ class ModelClustering(object):
     def show_training_kmeans_model_result(self):
         """
         Función que muestra el resultado del modelo kmeans.
+
         :return: No hay retorno.
         """
         plt.figure(figsize=(5, 5))
@@ -261,6 +274,7 @@ class ModelClustering(object):
     def testing_kmeans_model(self):
         """
         Función que hace la prueba del modelo
+
         :return: No hay retorno.
         """
         self.df_rfm['Cluster_Segment'] = self.kmeans.labels_

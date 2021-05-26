@@ -7,6 +7,11 @@ warnings.filterwarnings(action='once')
 
 
 class ModelAssociation(object):
+    """
+    Clase encargada de realizar todo el proceso relacionado a la asociacion de productos dependiendo
+    del pais desde donde se encuentre.
+    """
+
 
     def __init__(self, data):
         """
@@ -25,7 +30,9 @@ class ModelAssociation(object):
         Funcion que se encarga de preparar el DataFrame para aplicar el algoritmo Apriori removiendo de la
         columna 'Description' los espacios vacios; eliminando cualquier dato Nan de la columna 'Invoice', asi
         como cambiando su tipo de dato a 'str'.
+
         :return: No hay retorno.
+
         """
 
         self._df_data['Description'] = self._df_data['Description'].str.strip()
@@ -39,8 +46,11 @@ class ModelAssociation(object):
         """
         Función que se encarga de agrupar el dataset por la transacciónes de un pais determinado como fila y
         las descripciones de los diferentes productos que vende la tienda como columnas.
+
         :param country: Pais al cual se le quiere aplicar el agrupar sus transacciones.
-        :return: El nuevo dataFrame con las transacciones agrupadas
+
+        :return: El nuevo dataFrame con las transacciones agrupadas.
+
         """
 
         df_basket = (self._df_data[self._df_data['Country'] == country]
@@ -56,8 +66,11 @@ class ModelAssociation(object):
         """
         Funcion que se encarga de iniciar el proceso de volver en binario los valores del dataFrame ingresado
         por parametro. Elimina la columna 'Postage' ya que más adelante dara errores.
+
         :param df_basket: El dataFrame al cual se le quieren cambiar sus valores por binario.
+
         :return: El nuevo dataFrame con los valores en binarios.
+
         """
 
         df_basket_Sets = df_basket.applymap(self._encode_units)
@@ -70,8 +83,12 @@ class ModelAssociation(object):
     def _encode_units(self, x):
         """
         Funcion que se encarga de volver los valores del dataFrame
+
+
         :param x: Valor el cual se quiere cambiar ya sea por un cero o un uno.
+
         :return: Cero si el valor X es cero o menor. Uno si el valor X es uno o mayor.
+
         """
 
         if x <= 0:
@@ -84,8 +101,11 @@ class ModelAssociation(object):
     def create_itemset(self, df_basket_Sets):
         """
         Funcion que se encarga de crear los itemsets y de calcular su correspondiente metrica support.
+
         :param df_basket_Sets: DataFrame con los diferentes items de cada transaccion.
+
         :return: El nuevo dataFrame con los itemsets creados y su correspondiente metrica support calculada.
+
         """
 
         frequent_itemsets = apriori(df_basket_Sets, min_support=0.07, use_colnames=True)
@@ -97,9 +117,12 @@ class ModelAssociation(object):
     def create_association_rules(self, frequent_itemsets):
         """
         Funcion que se encarga de calcular las reglas de asociacion, con sus correspondientes metricas support,
-        confidence y lift
+        confidence y lift.
+
         :param frequent_itemsets: DataFrame del cual se va a calcular las reglas de asociacion.
+
         :return: No hay retorno.
+        
         """
 
         df_apriori_rules = association_rules(frequent_itemsets, metric="lift", min_threshold=1)
